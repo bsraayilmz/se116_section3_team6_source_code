@@ -7,7 +7,6 @@ public class gamePlay {
     int sure;
     public Characters characters = new Characters();
     private Items items = new Items();
-    private Levels levels;
     Location location;
 
     public int getCharEntering() {
@@ -36,13 +35,7 @@ public class gamePlay {
         this.items = items;
     }
 
-    public Levels getLevels() {
-        return levels;
-    }
 
-    public void setLevels(Levels levels) {
-        this.levels = levels;
-    }
 
     public void logIn() {
         System.out.println("===============================================================================");

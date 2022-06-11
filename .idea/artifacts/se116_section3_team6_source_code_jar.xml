@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="se116_section3_team6_source_code:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/se116_section3_team6_source_code_jar</output-path>
+    <root id="archive" name="se116_section3_team6_source_code.jar">
+      <element id="module-output" name="se116_section3_team6_source_code" />
+    </root>
+  </artifact>
+</component>

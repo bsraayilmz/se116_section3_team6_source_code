@@ -10,6 +10,14 @@ public class Characters{
     Weapons weapon = new Swords("Sword");
     Weapons weapon1 = new Shields("Shield");
     Weapons weapon2 = new Wands("Wand");
+    protected String name;
+    private boolean stunned;
+    private boolean isInTheGame;
+    SecureRandom secureRandom = new SecureRandom();
+    ArrayList<Weapons> inventoryFighter = new ArrayList<>();
+    ArrayList<Weapons> inventoryTank = new ArrayList<>();
+    ArrayList<Weapons> inventoryHealer = new ArrayList<>();
+    int restHealthPoint;
 
     public void addWeapons(Weapons weapons){
         onHand[0] = weapons;
@@ -22,15 +30,6 @@ public class Characters{
             items.printInfo();
         }
     }
-    protected String name;
-    private boolean stunned;
-    private boolean isInTheGame;
-    SecureRandom secureRandom = new SecureRandom();
-    ArrayList<Weapons> inventoryFighter = new ArrayList<>();
-    ArrayList<Weapons> inventoryTank = new ArrayList<>();
-    ArrayList<Weapons> inventoryHealer = new ArrayList<>();
-    static Dungeon dungeon = new Dungeon();
-    int restHealthPoint;
 
     protected String type;
 
@@ -117,7 +116,7 @@ public class Characters{
         this.stunned = stunned;
     }
 
-    public void controlCharForTankAndHealer() {
+    public void controlCharForTank(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("You cannot add a fighter character in battle char list! ");
@@ -384,7 +383,7 @@ public class Characters{
         System.out.println();
         System.out.println("Which character do you want to use for fighter? :) \n \t\t Please, write your character's name who you will play with");
         String fighterEnter = scanner.next();
-        fighterEnter.toUpperCase(Locale.ROOT);
+        fighterEnter.toLowerCase(Locale.ROOT);
         if (fighterEnter.equalsIgnoreCase("cammy")) {
             characterFighter = fighterArrayList.get(0);
             weaponsRandomly.displaySwordsInfo();
@@ -399,7 +398,7 @@ public class Characters{
             ChosenChar.add(characterFighter);
             Dungeon.EnemyInBattle.add(characterFighter);
             System.out.println("added in array ");
-            controlCharForTankAndHealer();
+            controlCharForTank();
         } else if (fighterEnter.equalsIgnoreCase("frost")) {
             characterFighter = fighterArrayList.get(1);
             System.out.println("Information of the character: ".toUpperCase(Locale.ROOT));
@@ -413,7 +412,7 @@ public class Characters{
             ChosenChar.add(characterFighter);
             Dungeon.EnemyInBattle.add(characterFighter);
             System.out.println("added in array ");
-            controlCharForTankAndHealer();
+            controlCharForTank();
         } else if (fighterEnter.equalsIgnoreCase("harley")) {
             characterFighter = fighterArrayList.get(2);
             System.out.println("Information of the character: ".toUpperCase(Locale.ROOT));
@@ -427,7 +426,7 @@ public class Characters{
             ChosenChar.add(characterFighter);
             Dungeon.EnemyInBattle.add(characterFighter);
             System.out.println("added in array ");
-            controlCharForTankAndHealer();
+            controlCharForTank();
         } else if (fighterEnter.equalsIgnoreCase("ling")){
             characterFighter = fighterArrayList.get(3);
         System.out.println("Information of the character: ".toUpperCase(Locale.ROOT));
@@ -441,7 +440,7 @@ public class Characters{
         ChosenChar.add(characterFighter);
         Dungeon.EnemyInBattle.add(characterFighter);
         System.out.println("added in array ");
-        controlCharForTankAndHealer();
+        controlCharForTank();
     }
           else{
                 System.out.println("Invalid entering! Please enter the name of the character that you want to play with.");
@@ -461,7 +460,7 @@ public class Characters{
         submitInfoForTank();
         System.out.println("-----------------------------------------------------");
         System.out.println();
-        System.out.println("Which character do you want to use for tank? :)");
+        System.out.println("Which character do you want to use for tank? :) \n\t Please write ID of the tank type..!");
         int tankEnter = scanner.nextInt();
         switch (tankEnter) {
 
@@ -542,7 +541,7 @@ public class Characters{
         submitInfoForHealer();
         System.out.println("-----------------------------------------------------");
         System.out.println();
-        System.out.println("Which character do you want to use for healer? :)");
+        System.out.println("Which character do you want to use for healer? :) \n\t Please write ID of the tank type..!");
         int healerEnter = scanner.nextInt();
         switch (healerEnter) {
             case 1:

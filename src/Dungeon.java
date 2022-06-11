@@ -61,7 +61,8 @@ public class Dungeon {
                     System.out.println("We have a gift..! Huhuuuuuwww :) ".toUpperCase(Locale.ROOT));
                     System.out.println();
                     System.out.println("Do you want to take it? YES <1> or NO <2>");
-                    int yesOrNo =input.nextInt();
+                    int yesOrNo;
+                    yesOrNo=input.nextInt();
                     if(yesOrNo==1){
                         System.out.println("YEEEEEESSS, YOU TOOK IT :) ");
                         EnemyInBattle.get(0).Inventory.add(randomWeapon(new Weapons("Weapon")));
@@ -73,6 +74,7 @@ public class Dungeon {
                     }
                     else{
                         System.out.println("Please select a valid value..!");
+                        yesOrNo= input.nextInt();
                     }
                 }
 
@@ -102,8 +104,7 @@ public class Dungeon {
         for (int i = enemyNumber; i > 0; i--) {
             createEnemy(new Enemy("Enemy " + (i+1)), EnemyInBattle);
         }
-        yourTurn();
-
+       yourTurn();
 
     }
 
