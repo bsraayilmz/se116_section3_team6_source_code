@@ -102,7 +102,7 @@ public class Dungeon {
         for (int i = enemyNumber; i > 0; i--) {
             createEnemy(new Enemy("Enemy " + (i+1)), EnemyInBattle);
         }
-        battleForEnemy();
+        yourTurn();
 
 
     }
